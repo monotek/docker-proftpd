@@ -18,7 +18,7 @@ echo "${FTP_USER}:${FTP_PASS}" | chpasswd
 echo -e "Changing proftpd.conf\n"
 sed -i /etc/proftpd/proftpd.conf -e 's/# DefaultRoot/DefaultRoot/' -e "s/Port\s*21/Port ${FTP_PORT_CONTROL}/"
 
-if [ -n "${FTP_PORTS_DATA}" ]; then
+if [ -n "${FTP_PORTS_DATA_BEG}" ] && [ -n "${FTP_PORTS_DATA_END}" ]; then
   sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA_BEG} ${FTP_PORTS_DATA_END}/"
 fi
 
