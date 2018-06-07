@@ -1,9 +1,5 @@
 FROM debian
-<<<<<<< HEAD
-MAINTAINER André Bauer <andre.bauer@kiwigrid.com>
-=======
 MAINTAINER André Bauer <monotek23@gmail.com>
->>>>>>> monotek/master
 
 ARG DEBIAN_FRONTEND=noninteractive
 
