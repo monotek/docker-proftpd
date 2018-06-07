@@ -21,6 +21,9 @@ if [ -n "${FTP_PORTS_DATA_BEG}" ] && [ -n "${FTP_PORTS_DATA_END}" ]; then
   sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA_BEG} ${FTP_PORTS_DATA_END}/"
 fi
 
+echo -e "fixing directory rights\n"
+chown -R ${FTP_USER}:${FTP_USER} ${FTP_DIR}
+
 echo -e "Starting ftp service on port 8021... will exit in ${FTP_TIMEOUT} seconds... \n"
 service proftpd start
 
