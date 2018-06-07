@@ -22,6 +22,7 @@ if [ -n "${FTP_PORTS_DATA_BEG}" ] && [ -n "${FTP_PORTS_DATA_END}" ]; then
 fi
 
 echo -e "Fixing directory rights\n"
+chmod o+w /dev/stdout
 chown -R ${FTP_USER}:${FTP_USER} ${FTP_DIR}
 
 echo -e "Starting ftp service on port 8021... will exit in ${FTP_TIMEOUT} seconds... \n"
