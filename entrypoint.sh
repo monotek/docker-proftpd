@@ -18,9 +18,9 @@ echo "${FTP_USER}:${FTP_PASS}" | chpasswd
 echo -e "Changing proftpd.conf\n"
 sed -i /etc/proftpd/proftpd.conf -e 's/# DefaultRoot/DefaultRoot/' -e "s/Port\s*21/Port ${FTP_PORT_CONTROL}/"
 
-if [ -n "${FTP_PORTS_DATA}" ]; then
-  sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA}/"
-fi
+#if [ -n "${FTP_PORTS_DATA}" ]; then
+#  sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA}/"
+#fi
 
 echo -e "Starting ftp service on port 8021... will exit in ${FTP_TIMEOUT} seconds... \n"
 service proftpd start
