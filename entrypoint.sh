@@ -12,10 +12,10 @@ FTP_PORTS_DATA=${FTP_PORTS_DATA}
 echo -e "Creating user ${FTP_USER} with home dir ${FTP_DIR}\n"
 useradd -m -d ${FTP_DIR} -k /noskel ${FTP_USER} -s /bin/bash
 
-echo -e "set user password to ${FTP_PASS}\n"
+echo -e "Set user password to ${FTP_PASS}\n"
 echo "${FTP_USER}:${FTP_PASS}" | chpasswd
 
-echo -e "changing proftpd.conf"
+echo -e "Changing proftpd.conf\n"
 sed -i /etc/proftpd/proftpd.conf -e 's/# DefaultRoot/DefaultRoot/' -e "s/Port\s*21/Port ${FTP_PORT_CONTROL}/"
 
 if [ -n "${FTP_PORTS_DATA}" ]; then
