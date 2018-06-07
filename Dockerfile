@@ -1,5 +1,5 @@
 FROM debian
-MAINTAINER André Bauer <andre.bauer@kiwigrid.com>
+MAINTAINER André Bauer <monotek23@gmail.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
 
