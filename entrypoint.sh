@@ -38,5 +38,3 @@ while true; do
   echo -e "\n Timeout reached... Stopping ftp process but keep container alive... \n"
   service proftpd stop
 done
-TransferLog /var/log/proftpd/xferlog
-SystemLog   /var/log/proftpd/proftpd.log
