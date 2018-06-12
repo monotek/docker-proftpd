@@ -3,9 +3,6 @@ MAINTAINER André Bauer <monotek23@gmail.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Expose ports
-EXPOSE 8021
-
 # install proftpd
 RUN apt-get update && \
     apt-get -y install proftpd

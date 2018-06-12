@@ -13,7 +13,7 @@ FTP_MASQUERADEADDRESS="${FTP_MASQUERADEADDRESS}"
 echo -e "Creating user ${FTP_USER} with home dir ${FTP_DIR}\n"
 useradd -m -d ${FTP_DIR} -k /noskel ${FTP_USER} -s /bin/bash
 
-echo -e "Set user password to ${FTP_PASS}\n"
+echo -e "Set ${FTP_USER} password to ${FTP_PASS}\n"
 echo "${FTP_USER}:${FTP_PASS}" | chpasswd
 
 echo -e "Changing proftpd.conf\n"
@@ -27,6 +27,9 @@ if [ -n "${FTP_PORTS_DATA}" ]; then
   sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA}/"
 fi
 
+echo -e "Fixing directory rights\n"
+chown -R ${FTP_USER}:${FTP_USER} ${FTP_DIR}
+
 echo -e "Starting ftp service on port 8021... will exit in ${FTP_TIMEOUT} seconds... \n"
 service proftpd start
 
@@ -35,3 +38,5 @@ while true; do
   echo -e "\n Timeout reached... Stopping ftp process but keep container alive... \n"
   service proftpd stop
 done
+TransferLog /var/log/proftpd/xferlog
+SystemLog   /var/log/proftpd/proftpd.log
