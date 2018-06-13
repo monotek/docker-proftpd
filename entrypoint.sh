@@ -23,7 +23,7 @@ if [ -n "${FTP_MASQUERADEADDRESS}" ]; then
   sed -i /etc/proftpd/proftpd.conf -e "s/# MasqueradeAddress.*/MasqueradeAddress ${FTP_MASQUERADEADDRESS}/"
 fi
 
-if [ -n "${FTP_PORTS_DATA}" ]; then
+if [ -n "${FTP_PORTS_DATA_BEG}" ] && [ -n "${FTP_PORTS_DATA_END}" ]; then
   sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA}/"
 fi
 
