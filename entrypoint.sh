@@ -24,7 +24,7 @@ if [ -n "${FTP_MASQUERADEADDRESS}" ]; then
 fi
 
 if [ -n "${FTP_PORTS_DATA_BEG}" ] && [ -n "${FTP_PORTS_DATA_END}" ]; then
-  sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts ${FTP_PORTS_DATA}/"
+  sed -i /etc/proftpd/proftpd.conf -e "s/# PassivePorts.*/PassivePorts {FTP_PORTS_DATA_BEG} {FTP_PORTS_DATA_END}/"
 fi
 
 echo -e "Fixing directory rights\n"
