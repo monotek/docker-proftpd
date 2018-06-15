@@ -7,7 +7,7 @@ docker run --rm -it -p 21:21 -e FTP_USER=bla -e FTP_PASS=bla -e FTP_DIR=/bla -e 
 ## Possible env vars:
 
 * FTP_DIR
-* FTP_PASS"
+* FTP_PASS
 * FTP_USER
 * FTP_TIMEOUT
 * FTP_PORT_CONTROL
